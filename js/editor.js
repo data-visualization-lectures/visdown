@@ -164,15 +164,29 @@ window.onload = function () {
     value: content,
   });
 
+  function _setActiveNav(slug) {
+    const links = document.querySelectorAll(".toc a");
+    links.forEach(function(link) {
+      const target = link.getAttribute("href").replace("#", "");
+      if (target === slug) {
+        link.classList.add("active");
+      } else {
+        link.classList.remove("active");
+      }
+    });
+  }
+
   function _getChapter () {
     let hash = window.location.hash
     let file = hash.replace("#", "");
-    let fileName = file == "" ? "intro.md" : file + ".md";
+    let slug = file == "" ? "intro" : file;
+    let fileName = slug + ".md";
     let fileUrl = "pages/" + fileName;
 
     fetch(fileUrl).then(data => data.text()).then(data => {
       editor.setValue(data);
       });
+    _setActiveNav(slug);
     }
 
   window.onhashchange = function () {_getChapter();}
