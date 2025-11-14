@@ -1,16 +1,16 @@
-# Datasets
+# データセット
 
-You can use external datasets or use the following datasets to try out Visdown.
+外部データセットを使用することもできますし、Visdown を試すために次のデータセットを使うこともできます。
 
-## Loading data
-You can use any csv, tsv or json file to load your data set. 
+## データの読み込み
+任意の csv、tsv、あるいは json ファイルを使ってデータセットを読み込むことができます。
 
 ```
 data: 
 
 ## Sample
 
-This the most simple dataset available.
+これは最もシンプルなデータセットです。
 
 | area    |  sales | profit | 
 |:--------|-------:|-------:|
@@ -21,9 +21,9 @@ This the most simple dataset available.
 | Central |    10  |      3 |  
 
 Metadata
-- Filename: `sample.csv`
-- Observations `(n)` : 5
-- Dimensions `(p)`   : 3
+- ファイル名: `sample.csv`
+- 観測数 `(n)` : 5
+- 特徴量の数 `(p)` : 3
 
 ```vis
 data: 
@@ -36,7 +36,7 @@ encoding:
 
 ## Cars
 
-A list of Indian cars and basic stats 
+インドの自動車と基本統計の一覧
 
 | brand   | model  |  price |   kmpl | type      |   bhp  |
 |:--------|:-------|-------:|-------:|:----------|-------:|
@@ -51,16 +51,16 @@ A list of Indian cars and basic stats
 | VW      | Vento  |    785 |   16.1 | Sedan     |   104  |
 
 Metadata
-- Filename: `cars.csv`
-- Observations `(n)`: 42
-- Dimensions `(p)`  : 6
-  - `brand`: brand
-  - `model`: model name
-  - `price`: price in '000 INR 
-  - `kmpl` : efficiency of the car in km per liter 
-  - `type` : type either Hatchback or Sedan
-  - `bhp`  : brake horsepower 
-- Source: Adapted from a car comparison website
+- ファイル名: `cars.csv`
+- 観測数 `(n)`: 42
+- 特徴 `(p)`  : 6
+  - `brand` : ブランド名
+  - `model` : モデル名
+  - `price` : 価格（単位：インド・ルピー / 1000 INR）
+  - `kmpl`  : 燃費（km/L）
+  - `type`  : 車種（Hatchback または Sedan）
+  - `bhp`   : ブレーキ馬力（brake horsepower）
+- 出典: 自動車比較サイトのデータを基に作成
 
 ```vis
 data(data/cars.csv) | point(x=kmpl:Q, y = price:Q)
@@ -68,7 +68,7 @@ data(data/cars.csv) | point(x=kmpl:Q, y = price:Q)
 
 ## Flights
 
-This dataset was is about flight punctuality from 5 London Airport to 5 major US airports 
+このデータセットは、ロンドンの5つの空港からアメリカ主要5空港へのフライトの定時運行状況に関するものです。
 
 | source| dest | airline | flights| onTimePerf| delayAvg | year |
 |:------|:-----|:--------|-------:|----------:|---------:|-----:|
@@ -83,17 +83,17 @@ This dataset was is about flight punctuality from 5 London Airport to 5 major US
 | LTN   | EWR  |  DJT    |    333 |     87.05 |   8.44   | 2016 |
 
 Metadata
-- Filename: `flights.csv`
-- Observations `(n)`: 157
-- Dimensions `(p)`  : 7
-  - `source`  : The source IATA airport code 
-  - `dest`    : The destination IATA airport code
-  - `airline` : The two letter IATA code for the airline 
-  - `flights` : The number of flights in that year
-  - `onTimePerf` : The precentage of flights on-time in that route
-  - `delayAvg`: The average delay in minutes for that route and airline
-  - `year`    : The year of data
-- Source: Adapted from flight punctuality statistics from the London Civil Aviation Authority
+- ファイル名: `flights.csv`
+- 観測数 `(n)`: 157
+- 特徴 `(p)`  : 7
+  - `source`  : 出発地の IATA 空港コード
+  - `dest`    : 到着地の IATA 空港コード
+  - `airline` : 航空会社の 2 文字 IATA コード
+  - `flights` : その年のフライト本数
+  - `onTimePerf` : そのルートにおける定時運航率（%）
+  - `delayAvg`: そのルート・航空会社における平均遅延時間（分）
+  - `year`    : データの年
+- 出典: ロンドン民間航空局（London Civil Aviation Authority）のフライト定時運航統計をもとに作成
 
 ```vis
 data(london.csv) 
@@ -103,7 +103,7 @@ rect(x=source:N, y=dest:N, color=sum(flights):Q)
 
 ## Notes
 
-This dataset was inspired by the demonetisation of INR 500 and INR 1000 notes in India conducted in 2016.
+このデータセットは、2016年にインドで実施された 500ルピー紙幣と 1000ルピー紙幣の高額紙幣廃止（デノミネーション）をきっかけに作られたものです。
 
 | year    | type   |  denom |  value |   money | number |
 |--------:|:-------|-------:|-------:|--------:|-------:|
@@ -118,16 +118,17 @@ This dataset was inspired by the demonetisation of INR 500 and INR 1000 notes in
 | 2015    | Notes  |   1000 |   1000 | 6325.68 |  6.326 |
 
 Metadata
-- Filename: `notes.csv`
-- Observations `(n)`: 351
-- Features `(p)`    : 6
-  - `year`  : The year of circulation
-  - `type`  : The type of currency
-  - `denom` : The denomination of the currency
-  - `value` : The face value of the currency
-  - `money` : The monetary value of currency in circulation (in INR Billion)
-  - `number`: The number of currency in circulation (in INR Billion)
-- Source: It is taken from Reserve Bank of India’s - Handbook of Statistics on Indian Economy 2016. Within it, Table 160 deals with [Notes and Coins in Circulation](https://www.rbi.org.in/scripts/PublicationsView.aspx?id=17293) and this dataset is only about the Notes circulation.
+- ファイル名: `notes.csv`  
+- 観測数 `(n)`: 351
+- 特徴 `(p)`    : 6
+  - `year`  : 流通した年
+  - `type`  : 通貨の種類
+  - `denom` : 額面金額（面額）
+  - `value` : 通貨の額面価値
+  - `money` : 流通している通貨の金額（単位：INR 十億）
+  - `number`: 流通している通貨の枚数（単位：INR 十億）
+- 出典: このデータセットはインド準備銀行（Reserve Bank of India）の *Handbook of Statistics on Indian Economy 2016* に基づきます。特に Table 160「Notes and Coins in Circulation」で扱われているデータのうち、紙幣（Notes）に関する部分のみを使用しています。  
+  https://www.rbi.org.in/scripts/PublicationsView.aspx?id=17293
 
 ```vis
 data(data/notes.csv) 

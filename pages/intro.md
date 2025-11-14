@@ -1,10 +1,11 @@
 # Visdown
 
-**Make visualisations using only markdown**
+**マークダウンだけで可視化を作る**
 
-Write visualisation using a simple declarative markup like you would write code. Just wrap it in fenced block (three backticks) and mark the language as `vis`.
+コードを書くように、シンプルな宣言的マークアップを使って可視化を書きます。三つのバッククォートで囲み、言語として `vis` を指定するだけです。
 
-*Make simple static visualisations*
+*シンプルな静的可視化を作る*
+
 
 ```vis
 data:
@@ -19,11 +20,11 @@ encoding:
     type: quantitative
 ```
 
-Visdown is based on the grammar of interactive graphic (vega-lite) which allows you to specify the visualisation including interactions in a declarative fashion.
+Visdown は、対話型グラフィックの文法（Vega-Lite）に基づいており、可視化を宣言的な方法で記述することを可能にします。これにより、インタラクションを含むビジュアライゼーション全体を宣言的に指定できます。
 
-*Make interactive visualisations*
+*インタラクティブな可視化を作る*
 
-Select the circles with the mouse
+マウスで円を選択します
 
 ```vis
 data:
