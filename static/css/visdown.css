@@ -63,12 +63,6 @@ nav {
   cursor: pointer;
 }
 
-.icons-bottom {
-  width: 3.5rem;
-  position: absolute;
-  bottom: 0;
-}
-
 #editor {
   padding: 0;
   margin: 0 0 0 3.5rem;
